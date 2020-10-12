@@ -1,10 +1,8 @@
 pipeline {
   agent any
-  options([
-    parameters([
+    parameters{
       string(name: 'NAME', defaultValue: 'marvin')
-    ])
-  ])
+    }
   stages {
     stage('Disk Space Check') {
       steps {
@@ -13,7 +11,7 @@ pipeline {
     }
     stage('Daily Dose od Satisfaction') {
       steps {
-        echo "Hello dear ${NAME}"
+        echo "Hello dear ${params.NAME}"
         sh 'date'
         echo "This is your DDoS number ${env.BUILD_NUMBER}"
       }
