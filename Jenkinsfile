@@ -3,13 +3,13 @@ pipeline {
   stages {
     stage('Disk Space Check') {
       steps {
-        df
+        sh 'df'
       }
     }
     stage('Daily Dose od Satisfaction') {
       steps {
         echo "Hello dear marvin"
-        date
+        sh 'date'
         echo "This is your DDoS number ${env.BUILD_NUMBER}"
       }
     }
